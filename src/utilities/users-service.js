@@ -1,6 +1,5 @@
 // users-service.js
-// Serice modules hold the code that implements
-// "business"/application logic
+// Serice modules hold the code that implements "business"/application logic
 // Service methods often depend upon or use
 // methods in the API modules
 
@@ -38,6 +37,7 @@ export function getUser() {
 }
 
 export function logOut() {
+  // this will remove token from local storage to get rid of "saved" session
   localStorage.removeItem('token');
 }
 
