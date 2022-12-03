@@ -14,6 +14,9 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
+// Middleware to verify token and assign user object of payload to req.user.
+app.use(require('./config/checkToken'));
+
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
 
