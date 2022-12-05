@@ -11,5 +11,6 @@ export function login(credentials) {
 }
 
 export function checkToken() {
+  // console.log("checkToken userApi started")
   return sendRequest(`${BASE_URL}/check-token`);
 }
