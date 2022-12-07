@@ -8,15 +8,21 @@ export function getAllCategories() {
     return sendRequest(BASE_URL);
 }
 
-export function addCategory(formData, currentCategory) {
+export function addCategory(formData) {
     console.log("addCategoryAPI started")
     console.log(formData)
-    console.log(currentCategory)
-    return sendRequest(`${BASE_URL}/${currentCategory}new`, 'POST', formData)
+    return sendRequest(`${BASE_URL}/new`, 'POST', formData)
 }
 
 export function deleteCategory(formData) {
     console.log("deleteCategoryAPI started")
     console.log(formData)
     return sendRequest(`${BASE_URL}/delete`, 'POST', formData)
+}
+
+export function updateCategory(formData, startValue) {
+    console.log(formData)
+    console.log(startValue)
+    console.log("updateCategoryAPI started")
+    return sendRequest(`${BASE_URL}/update`, 'POST', formData, startValue)
 }

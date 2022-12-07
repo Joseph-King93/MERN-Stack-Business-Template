@@ -19,3 +19,13 @@ export function deleteItem(formData) {
     console.log(formData)
     return sendRequest(`${BASE_URL}/delete`, 'POST', formData)
 }
+
+export function updateItem(formData, currentCategory, startValue) {
+    console.log(formData)
+    console.log(currentCategory)
+    console.log(startValue)
+    console.log(startValue.startValue)
+    console.log(startValue.currentCategory)
+    console.log("updateItemAPI started")
+    return sendRequest(`${BASE_URL}/${startValue.currentCategory}/update`, 'POST', formData, startValue)
+}

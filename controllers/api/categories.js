@@ -9,7 +9,9 @@ module.exports = {
     getAllCategories,
     addCategory,
     deleteCategory,
-    addItem
+    addItem,
+    updateCategory,
+    updateItem
 }
 
 async function getAllCategories(req, res) {
@@ -52,4 +54,28 @@ async function addItem(req, res) {
     // console.log(newItem)
     // console.log("addItemWorks?")
     res.json(newItem)
+}
+
+async function updateCategory(req, res) {
+    const startValue = req.body.startValue.startValue
+    const payload = req.body.payload
+    const updateDBDone = await Category.findOneAndUpdate({name: startValue}, payload)
+    console.log(updateDBDone)
+    console.log("updateCategory started")
+    console.log(req.body)
+    console.log(startValue)
+    console.log(payload)
+    res.json(updateDBDone)
+}
+
+async function updateItem(req, res) {
+    const startValue = req.body.startValue.startValue
+    const payload = req.body.payload
+    const updateDBDone = await Item.findOneAndUpdate({name: startValue}, payload)
+    console.log(updateDBDone)
+    console.log("updateItem started")
+    console.log(req.body)
+    console.log(startValue)
+    console.log(payload)
+    res.json(updateDBDone)
 }
