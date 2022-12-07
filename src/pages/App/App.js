@@ -11,28 +11,19 @@ import NewOrderPage from '../NewOrderPage/NewOrderPage';
 function App() {
   const [user, setUser] = useState(getUser());
   const [categories, setCategories] = useState([]);
-  console.log(categories)
-
-  // useEffect(function() {
-  //   console.log("this works")
-  //   categories.then(results => setCategories(results)
-  //   .then(console.log(categories)))
-  // },[])
 
   useEffect(function() {
     async function getCategories() {
-      const items = await getAllCategories();
+      const allCategories = await getAllCategories();
 
-      setCategories(items);
+      setCategories(allCategories);
 
     }
     getCategories();
   }, [])
 
-  // printCategory()
-console.log(categories)
-console.log(categories[0])
-console.log(categories[0])
+  console.log(categories)
+
   return (
     <main className="App">
       
@@ -42,7 +33,7 @@ console.log(categories[0])
             <Routes>
               <Route path="/orders/new" element={<NewOrderPage />} />
               <Route path="/categories" element={<CategoriesPage categories={categories} />} />
-              <Route path="/categories/:category" element={<CategoryDetailPage categories={categories}/>} />
+              <Route path="/categories/:categoryType" element={<CategoryDetailPage categories={categories}/>} />
             </Routes>
           </>
         :

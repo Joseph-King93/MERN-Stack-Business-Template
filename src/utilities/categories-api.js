@@ -10,5 +10,12 @@ export function getAllCategories() {
 
 export function addCategory(formData) {
     console.log("addCategoryAPI started")
+    console.log(formData)
     return sendRequest(`${BASE_URL}/new`, 'POST', formData)
+}
+
+export function deleteCategory(formData) {
+    console.log("deleteCategoryAPI started")
+    console.log(formData)
+    return sendRequest(`${BASE_URL}/delete`, 'POST', formData)
 }

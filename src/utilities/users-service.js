@@ -9,13 +9,15 @@ import * as usersAPI from './users-api';
 export async function signUp(userData) {
   // Delegate the AJAX request to the users-api.js
   // module.
+  console.log("signUp Started")
   const token = await usersAPI.signUp(userData);
+  console.log(token)
   localStorage.setItem('token', token);
   return getUser();
 }
 
 export function getToken() {
-  // console.log("getToken users-service start")
+  console.log("getToken users-service start")
   // getItem will return null if the key does not exist
   const token = localStorage.getItem('token');
   if (!token) return null;

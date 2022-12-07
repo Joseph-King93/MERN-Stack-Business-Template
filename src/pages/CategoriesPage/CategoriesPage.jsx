@@ -1,11 +1,12 @@
 // CategoriesPage.jsx
 
-import CategoryItems from "../../components/CategoryItems/CategoryItems";
+import { useState } from "react";
 import { checkToken } from "../../utilities/users-service";
 import { Link } from 'react-router-dom'
 import CategoryForm from "../../components/CategoryForm/CategoryForm";
 
 export default function CategoriesPage({categories}) {
+    const [error, setError] = useState('');
 
     async function handleCheckToken() {
         const expDate = await checkToken();
@@ -16,7 +17,7 @@ export default function CategoriesPage({categories}) {
     return (
         <>
             <h1>CategoriesPage</h1>
-            {categories[0].items[0].name}
+            {/* {categories[0].items[0].name} */}
             <br></br>
             {categories.map(cat => 
                     <p>
