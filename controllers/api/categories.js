@@ -4,6 +4,7 @@ const Item = require('../../models/item')
 const Category = require('../../models/category');
 
 
+
 module.exports = {
     getAllCategories,
     addCategory,
@@ -38,10 +39,17 @@ async function deleteCategory(req, res) {
 }
 
 async function addItem(req, res) {
-    console.log("addItem Controller started")
-    console.log(req.body)
-    // const newCategory = await Category.create(req.body)
-    // console.log(newCategory)
-    console.log("addItemWorks?")
-    res.json("wow")
+    // console.log("addItem Controller started")
+    // console.log(req.body)
+    const newItem = await Item.create(req.body)
+    // console.log("this is newItem", newItem)
+    // console.log(newItem._id)
+    const foundCategory = await Category.findOne({name: req.params.categoryType})
+    // console.log("foundCategory item", foundCategory.items)
+    foundCategory.items.push(newItem)
+    foundCategory.save()
+    // console.log(testing)
+    // console.log(newItem)
+    // console.log("addItemWorks?")
+    res.json(newItem)
 }

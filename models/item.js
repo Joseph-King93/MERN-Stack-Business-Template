@@ -12,9 +12,6 @@
 // module.exports = mongoose.model('ItemModel', itemSchema);
 
 
-
-
-
 // ITEM IS HERE
 const mongoose = require('mongoose');
 

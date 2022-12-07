@@ -8,10 +8,11 @@ export function getAllCategories() {
     return sendRequest(BASE_URL);
 }
 
-export function addCategory(formData) {
+export function addCategory(formData, currentCategory) {
     console.log("addCategoryAPI started")
     console.log(formData)
-    return sendRequest(`${BASE_URL}/new`, 'POST', formData)
+    console.log(currentCategory)
+    return sendRequest(`${BASE_URL}/${currentCategory}new`, 'POST', formData)
 }
 
 export function deleteCategory(formData) {

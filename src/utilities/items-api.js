@@ -1,7 +1,7 @@
 // itemsAPI.js
 
 import sendRequest from "./send-request";
-const BASE_URL="/api/category";
+const BASE_URL="/api/categories";
 
 export function getAllItems() {
     console.log("items-api started")
