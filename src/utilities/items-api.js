@@ -11,13 +11,15 @@ export function getAllItems() {
 export function addItem(formData, currentCategory) {
     console.log("addItemAPI started")
     console.log(formData)
+    console.log(currentCategory)
     return sendRequest(`${BASE_URL}/${currentCategory}/new`, 'POST', formData)
 }
 
-export function deleteItem(formData) {
+export function deleteItem(formData, currentCategory, startValue) {
     console.log("deleteItemAPI started")
     console.log(formData)
-    return sendRequest(`${BASE_URL}/delete`, 'POST', formData)
+    console.log(currentCategory)
+    return sendRequest(`${BASE_URL}/${currentCategory}/delete`, 'POST', formData)
 }
 
 export function updateItem(formData, currentCategory, startValue) {

@@ -1,7 +1,10 @@
+import { set } from 'mongoose';
 import { useState } from 'react';
+import { getAllCategories } from '../../utilities/categories-api';
 import * as categoriesAPI from '../../utilities/categories-api';
 
-export default function CategoryForm() {
+export default function CategoryForm({categories, setCategories}) {
+    // console.log(categories)
     const [category, setCategory] = useState({
     name: ''
     });
@@ -17,16 +20,18 @@ export default function CategoryForm() {
 
     async function handleSubmit(evt) {
         // console.log({...category})
-        
         evt.preventDefault();
         console.log("clicked")
         // console.log(category)
         try {
-
             const formData = (category)
             // console.log(formData)
             const newCategory = await categoriesAPI.addCategory(formData)
-            // console.log(newCategory)
+            console.log(newCategory)
+            const allCategories = await getAllCategories();
+            setCategories(allCategories);
+            // setCategories(newCategory)
+            console.log(categories)
         } catch {
             console.log(error)
             setError('Error Creating New Category - Try Again');
@@ -46,6 +51,8 @@ export default function CategoryForm() {
             const formData = (deleteCategory)
             // console.log(formData)
             const deleteCategoryDone = await categoriesAPI.deleteCategory(formData)
+            const allCategories = await getAllCategories();
+            setCategories(allCategories);
             // console.log("deleteCategoryDone is finished")
             // console.log(deleteCategoryDone)
         } catch {

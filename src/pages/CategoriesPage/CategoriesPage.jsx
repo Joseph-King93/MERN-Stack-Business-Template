@@ -4,7 +4,7 @@ import { checkToken } from "../../utilities/users-service";
 import CategoryForm from "../../components/CategoryForm/CategoryForm";
 import UpdateForm from "../../components/UpdateForm/UpdateForm";
 
-export default function CategoriesPage({categories}) {
+export default function CategoriesPage({categories, setCategories}) {
     // const [clicked, setClicked] = useState(true)
 
     async function handleCheckToken() {
@@ -31,11 +31,17 @@ export default function CategoriesPage({categories}) {
             {categories.map((cat, i) => (
                     <UpdateForm 
                     key={i}
-                    startValue={cat.name} />
+                    startValue={cat.name}
+                    categories={categories}
+                    setCategories={setCategories} 
+                    />
                 ))}
             <br></br>
             <button onClick={handleCheckToken}>Check When My Login Expires</button>
-            <CategoryForm categories={categories} />
+            <CategoryForm 
+            categories={categories} 
+            setCategories={setCategories}
+            />
         </>
     );
 }

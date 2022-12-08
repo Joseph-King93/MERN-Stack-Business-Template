@@ -2,15 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import * as categoriesAPI from '../../utilities/categories-api';
 import * as itemsAPI from '../../utilities/items-api'
+import { getAllCategories } from '../../utilities/categories-api';
 
-export default function UpdateForm(startValue, currentCategory) {
-    // console.log("this is UpdateForm")
-    // console.log(startValue)
-    // console.log(startValue.startValue)
-    // console.log("this is currentCategory", currentCategory)
-
-
- 
+export default function UpdateForm(startValue, currentCategory, setCategories) {
+    console.log("this is UpdateForm")
+    console.log(startValue)
+    console.log(startValue.startValue)
+    console.log(startValue.currentCategory)
+    console.log("this is currentCategory", startValue.currentCategory)
 
     const [clicked, setClicked] = useState(true)
     const [formInput, setFormInput] = useState({
@@ -34,17 +33,24 @@ export default function UpdateForm(startValue, currentCategory) {
     }
 
     async function handleSubmit(evt) {
+        console.log("updateForm handleSubmit")
         evt.preventDefault();
         try {
             const formData = (formInput)
             console.log("wow submit click")
-            if (currentCategory ==! undefined) {
+            console.log(startValue.currentCategory)
+            console.log(startValue.currentCategory != undefined)
+            if (startValue.currentCategory != undefined) {
                 console.log("testt was true!?")
                 const updateDone = await categoriesAPI.updateCategory(formData, startValue)
-                console.log(updateDone)
+                const allCategories = await getAllCategories();
+                setCategories(allCategories);
+                setCategories(updateDone)
             } else {
                 console.log("testt was false?!")
                 const updateDone = await itemsAPI.updateItem(formData, currentCategory, startValue)
+                const allCategories = await getAllCategories();
+                setCategories(allCategories);
                 console.log(updateDone)
             }
         } catch {
@@ -59,7 +65,7 @@ export default function UpdateForm(startValue, currentCategory) {
             {clicked ?
                 <p>
                     <Link to={startValue.startValue.replace(/\s/g,'-')}>{startValue.startValue}</Link>
-                    <button onClick={handleUpdate}>wow</button>
+                    <button onClick={handleUpdate}>not wow</button>
                 </p>
             :  
             <div className="form-container">

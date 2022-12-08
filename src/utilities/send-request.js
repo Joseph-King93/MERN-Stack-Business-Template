@@ -18,7 +18,7 @@ export default async function sendRequest(url, method = 'GET', payload = null, s
             console.log(startValue)
             console.log(JSON.stringify(startValue))
             options.headers = { 'Content-Type': 'application/json' };
-            options.body = JSON.stringify({ startValue, payload })         
+            options.body = JSON.stringify({startValue, payload })         
             console.log("options is here", options)
             console.log("options.body is here", options.body)
         } else {

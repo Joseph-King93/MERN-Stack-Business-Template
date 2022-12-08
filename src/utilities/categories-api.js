@@ -21,8 +21,8 @@ export function deleteCategory(formData) {
 }
 
 export function updateCategory(formData, startValue) {
+    console.log("updateCategoryAPI started")
     console.log(formData)
     console.log(startValue)
-    console.log("updateCategoryAPI started")
     return sendRequest(`${BASE_URL}/update`, 'POST', formData, startValue)
 }

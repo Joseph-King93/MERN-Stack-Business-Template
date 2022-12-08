@@ -8,10 +8,11 @@ const Category = require('../../models/category');
 module.exports = {
     getAllCategories,
     addCategory,
+    updateCategory,
     deleteCategory,
     addItem,
-    updateCategory,
-    updateItem
+    updateItem,
+    deleteItem
 }
 
 async function getAllCategories(req, res) {
@@ -29,6 +30,18 @@ async function addCategory(req, res) {
     const newCategory = await Category.create(req.body)
     console.log(newCategory)
     res.json(newCategory)
+}
+
+async function updateCategory(req, res) {
+    const startValue = req.body.startValue.startValue
+    const payload = req.body.payload
+    const updateDBDone = await Category.findOneAndUpdate({name: startValue}, payload)
+    console.log(updateDBDone)
+    console.log("updateCategory started")
+    console.log(req.body)
+    console.log(startValue)
+    console.log(payload)
+    res.json(updateDBDone)
 }
 
 async function deleteCategory(req, res) {
@@ -56,17 +69,6 @@ async function addItem(req, res) {
     res.json(newItem)
 }
 
-async function updateCategory(req, res) {
-    const startValue = req.body.startValue.startValue
-    const payload = req.body.payload
-    const updateDBDone = await Category.findOneAndUpdate({name: startValue}, payload)
-    console.log(updateDBDone)
-    console.log("updateCategory started")
-    console.log(req.body)
-    console.log(startValue)
-    console.log(payload)
-    res.json(updateDBDone)
-}
 
 async function updateItem(req, res) {
     const startValue = req.body.startValue.startValue
@@ -78,4 +80,29 @@ async function updateItem(req, res) {
     console.log(startValue)
     console.log(payload)
     res.json(updateDBDone)
+}
+
+async function deleteItem(req, res) {
+    console.log("deleteItem Controller started")
+    console.log(req.body)
+    console.log(req.body.name)
+
+    const deleteItemDone = await Item.findOneAndDelete({name: req.body.name})
+    // const foundCategory = await Category.findOne({name: req.params.categoryType})
+    // // console.log("foundCategory item", foundCategory.items)
+    // foundCategory.items.push(newItem)
+    // foundCategory.save()
+    // // console.log(testing)
+    // // console.log(newItem)
+    // // console.log("addItemWorks?")
+
+}
+
+async function deleteCategory(req, res) {
+    console.log("deleteItem Controller started")
+    console.log(req.body)
+    console.log(req.body.name)
+    const deleteCategoryDone = await Category.findOneAndDelete({name: req.body.name})
+    console.log(deleteCategoryDone)
+    res.json(deleteCategoryDone)
 }

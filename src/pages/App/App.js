@@ -15,9 +15,7 @@ function App() {
   useEffect(function() {
     async function getCategories() {
       const allCategories = await getAllCategories();
-
       setCategories(allCategories);
-
     }
     getCategories();
   }, [])
@@ -32,8 +30,8 @@ function App() {
             <NavBar user={user}/>
             <Routes>
               <Route path="/orders/new" element={<NewOrderPage />} />
-              <Route path="/categories" element={<CategoriesPage categories={categories} />} />
-              <Route path="/categories/:categoryType" element={<CategoryDetailPage categories={categories}/>} />
+              <Route path="/categories" element={<CategoriesPage categories={categories} setCategories={setCategories} />} />
+              <Route path="/categories/:categoryType" element={<CategoryDetailPage categories={categories} setCategories={setCategories} />} />
             </Routes>
           </>
         :
