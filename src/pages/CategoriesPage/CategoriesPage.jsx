@@ -3,6 +3,7 @@
 import { checkToken } from "../../utilities/users-service";
 import CategoryForm from "../../components/CategoryForm/CategoryForm";
 import UpdateForm from "../../components/UpdateForm/UpdateForm";
+import Button from "react-bootstrap/Button";
 
 export default function CategoriesPage({categories, setCategories}) {
     // const [clicked, setClicked] = useState(true)
@@ -23,7 +24,6 @@ export default function CategoriesPage({categories, setCategories}) {
     //     }
     // }
 
-
     return (
         <>
             <h1>CategoriesPage</h1>
@@ -37,7 +37,7 @@ export default function CategoriesPage({categories, setCategories}) {
                     />
                 ))}
             <br></br>
-            <button onClick={handleCheckToken}>Check When My Login Expires</button>
+            <Button variant="primary" onClick={handleCheckToken}>Check When My Login Expires</Button>
             <CategoryForm 
             categories={categories} 
             setCategories={setCategories}
