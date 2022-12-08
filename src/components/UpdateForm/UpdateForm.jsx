@@ -5,6 +5,7 @@ import * as itemsAPI from '../../utilities/items-api'
 import { getAllCategories } from '../../utilities/categories-api';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 
 
@@ -89,14 +90,18 @@ export default function UpdateForm(startValue, currentCategory, setCategories) {
             :
                 <Card style={{ width: "40%" }}>
                     <Card.Header >
-                        <div className="form-container">
-                            <form autoComplete="off" onSubmit={handleSubmit}>
-                                <input type="string" name="name" value={formInput.name} onChange={handleChange} />
+
+                            <Form autoComplete="off" onSubmit={handleSubmit}>
+                                <Form.Control type="string" name="name" value={formInput.name} onChange={handleChange} />
+                                <Form.Text className="text-muted">
+                                    Input new name of Category/Service Above
+                                </Form.Text>
+
                                 <br></br>
                                 <Button variant="outline-warning" size="sm" onClick={handleUpdate}>Cancel</Button>
                                 <Button variant="outline-danger" size="sm" type="submit">Submit Update</Button>
-                            </form>
-                        </div>
+                            </Form>
+
                     </Card.Header>
                     <br></br>
                     Some information about this category of items/services your Business offers
