@@ -31,7 +31,7 @@ export default async function sendRequest(url, method = 'GET', payload = null, s
     }
 
     const token = getToken();
-    console.log("token ran")
+    // console.log("token ran")
     if (token) {
         // Ensure that headers object exists
         options.headers = options.headers || {};

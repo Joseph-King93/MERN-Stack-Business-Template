@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import ItemForm from "../../components/ItemForm/ItemForm";
 import UpdateForm from "../../components/UpdateForm/UpdateForm"
 
 export default function CategoryDetailPage({ categories, setCategories }) {
     // console.log("this is catDetailPage")
     // console.log(useParams().categoryType)
-    let currentCategory = useParams().categoryType
+    const [currentCategory, setCurrentCategory] = useState(useParams().categoryType)
     console.log("this is currCat in catDetPage", currentCategory)
     
 
@@ -45,16 +45,21 @@ export default function CategoryDetailPage({ categories, setCategories }) {
         <>
             "this is CategoryDetailPage"
             <br></br>
-            {categories[index].items.map((item, i) => (
-                    <UpdateForm 
-                    startValue={item.name} 
-                    currentCategory={currentCategory}
-                    setCategories={setCategories}
-                    key={i}
-                    />                
-                ))
+            {categories[index] !== undefined ?
+                <>
+                    {categories[index].items.map((item, i) => (
+                        <UpdateForm 
+                        startValue={item.name} 
+                        currentCategory={currentCategory}
+                        setCategories={setCategories}
+                        key={i}
+                        />                
+                        ))
+                    }
+                </>
+                        :
+                        <h1>whoops it broke</h1>
             }
-
             <ItemForm 
             categories={categories} 
             currentCategory={currentCategory}

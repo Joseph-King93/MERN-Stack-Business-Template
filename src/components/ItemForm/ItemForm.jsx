@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as itemsAPI from '../../utilities/items-api.js';
-import { getAllCategories } from '../../utilities/categories-api.js';
+import * as categoriesAPI from '../../utilities/categories-api';
 
 export default function ItemForm({currentCategory, setCategories}) {
     console.log("this is in itemForm")
@@ -19,20 +19,15 @@ export default function ItemForm({currentCategory, setCategories}) {
     }
 
     async function handleSubmit(evt) {
-        // console.log({ ...item })
-
         evt.preventDefault();
         console.log("itemForm handleSubmit clicked")
-        // console.log(item)
         try {
-
             const formData = (item)
             // console.log(formData)
             const newItem = await itemsAPI.addItem(formData, currentCategory)
-            const allCategories = await getAllCategories();
+            const allCategories = await categoriesAPI.getAllCategories();
             setCategories(allCategories);
             console.log(newItem)
-
         } catch {
             console.log(error)
             setError('Error Creating New Item - Try Again');
@@ -52,10 +47,8 @@ export default function ItemForm({currentCategory, setCategories}) {
             const formData = (deleteItem)
             // console.log(formData)
             const deleteItemDone = await itemsAPI.deleteItem(formData, currentCategory)
-            const allCategories = await getAllCategories();
+            const allCategories = await categoriesAPI.getAllCategories();
             setCategories(allCategories);
-            console.log(deleteItemDone)
-            console.log("deleteItemDone is finished")
             console.log(deleteItemDone)
         } catch {
             console.log(error)

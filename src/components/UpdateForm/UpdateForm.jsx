@@ -5,11 +5,11 @@ import * as itemsAPI from '../../utilities/items-api'
 import { getAllCategories } from '../../utilities/categories-api';
 
 export default function UpdateForm(startValue, currentCategory, setCategories) {
-    console.log("this is UpdateForm")
-    console.log(startValue)
-    console.log(startValue.startValue)
-    console.log(startValue.currentCategory)
-    console.log("this is currentCategory", startValue.currentCategory)
+    // console.log("this is UpdateForm")
+    // console.log(startValue)
+    // console.log(startValue.startValue)
+    // console.log(startValue.currentCategory)
+    // console.log("this is currentCategory", startValue.currentCategory)
 
     const [clicked, setClicked] = useState(true)
     const [formInput, setFormInput] = useState({
@@ -34,24 +34,28 @@ export default function UpdateForm(startValue, currentCategory, setCategories) {
 
     async function handleSubmit(evt) {
         console.log("updateForm handleSubmit")
-        evt.preventDefault();
+
         try {
             const formData = (formInput)
-            console.log("wow submit click")
+            console.log("updateForm submit click")
             console.log(startValue.currentCategory)
-            console.log(startValue.currentCategory != undefined)
-            if (startValue.currentCategory != undefined) {
-                console.log("testt was true!?")
+            console.log(startValue.currentCategory == undefined)
+            if (startValue.currentCategory == undefined) {
+                console.log("testt was true!? run cat")
                 const updateDone = await categoriesAPI.updateCategory(formData, startValue)
-                const allCategories = await getAllCategories();
-                setCategories(allCategories);
-                setCategories(updateDone)
-            } else {
-                console.log("testt was false?!")
-                const updateDone = await itemsAPI.updateItem(formData, currentCategory, startValue)
-                const allCategories = await getAllCategories();
-                setCategories(allCategories);
                 console.log(updateDone)
+                const allCategories = await getAllCategories();
+                // console.log(setCategories(allCategories));
+                // setCategories(allCategories)
+            } else {
+                console.log("testt was false?! run item")
+                const updateDone = await itemsAPI.updateItem(formData, currentCategory, startValue)
+                console.log("this is updateItemDone", updateDone)
+                const allCategories = await getAllCategories();
+                // console.log(allCategories)
+                // setCategories(allCategories);
+                
+                // console.log(updateDone)
             }
         } catch {
             console.log(error)

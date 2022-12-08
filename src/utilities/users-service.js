@@ -17,7 +17,7 @@ export async function signUp(userData) {
 }
 
 export function getToken() {
-  console.log("getToken users-service start")
+  // console.log("getToken users-service start")
   // getItem will return null if the key does not exist
   const token = localStorage.getItem('token');
   if (!token) return null;

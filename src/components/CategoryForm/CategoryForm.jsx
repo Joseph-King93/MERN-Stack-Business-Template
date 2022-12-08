@@ -1,6 +1,4 @@
-import { set } from 'mongoose';
 import { useState } from 'react';
-import { getAllCategories } from '../../utilities/categories-api';
 import * as categoriesAPI from '../../utilities/categories-api';
 
 export default function CategoryForm({categories, setCategories}) {
@@ -28,7 +26,7 @@ export default function CategoryForm({categories, setCategories}) {
             // console.log(formData)
             const newCategory = await categoriesAPI.addCategory(formData)
             console.log(newCategory)
-            const allCategories = await getAllCategories();
+            const allCategories = await categoriesAPI.getAllCategories();
             setCategories(allCategories);
             // setCategories(newCategory)
             console.log(categories)
@@ -51,7 +49,7 @@ export default function CategoryForm({categories, setCategories}) {
             const formData = (deleteCategory)
             // console.log(formData)
             const deleteCategoryDone = await categoriesAPI.deleteCategory(formData)
-            const allCategories = await getAllCategories();
+            const allCategories = await categoriesAPI.getAllCategories();
             setCategories(allCategories);
             // console.log("deleteCategoryDone is finished")
             // console.log(deleteCategoryDone)

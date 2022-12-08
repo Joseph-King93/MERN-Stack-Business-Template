@@ -16,11 +16,9 @@ module.exports = {
 }
 
 async function getAllCategories(req, res) {
-    console.log("category controller started")
+    console.log("getAllCategory controller started")
     const categories = await Category.find({}).populate('items')
-    console.log("this is here")
-
-    console.log(categories)
+    console.log("this is all cats", categories)
     res.json(categories)
 }
 
@@ -33,15 +31,17 @@ async function addCategory(req, res) {
 }
 
 async function updateCategory(req, res) {
+    console.log("updateCat Controller started")
+    console.log("this is req", req.body)
+
+    console.log("this is req.pay", req.body.payload)
     const startValue = req.body.startValue.startValue
+    console.log("this is startValue", startValue)
     const payload = req.body.payload
-    const updateDBDone = await Category.findOneAndUpdate({name: startValue}, payload)
-    console.log(updateDBDone)
-    console.log("updateCategory started")
-    console.log(req.body)
-    console.log(startValue)
-    console.log(payload)
-    res.json(updateDBDone)
+    console.log("this is payload", payload)
+    const updateDBCatDone = await Category.updateOne({name: startValue}, payload, {new: true} )
+    console.log("this is updateDone", updateDBCatDone)
+    res.json(updateDBCatDone)
 }
 
 async function deleteCategory(req, res) {
@@ -54,8 +54,8 @@ async function deleteCategory(req, res) {
 }
 
 async function addItem(req, res) {
-    // console.log("addItem Controller started")
-    // console.log(req.body)
+    console.log("addItem Controller started")
+    console.log(req.body)
     const newItem = await Item.create(req.body)
     // console.log("this is newItem", newItem)
     // console.log(newItem._id)
@@ -69,17 +69,24 @@ async function addItem(req, res) {
     res.json(newItem)
 }
 
-
 async function updateItem(req, res) {
+    console.log("updateItem Controller started")
+    console.log("this is req", req.body)
+
+    console.log("this is req.SV", req.body.startValue.startValue)
+
+    console.log("this is req.pay", req.body.payload)
+
     const startValue = req.body.startValue.startValue
     const payload = req.body.payload
-    const updateDBDone = await Item.findOneAndUpdate({name: startValue}, payload)
-    console.log(updateDBDone)
-    console.log("updateItem started")
+    console.log("this is SV", startValue)
+    console.log("this is pay", payload)
+    const updateDBItemDone = await Item.findOneAndUpdate({name: startValue}, payload)
+    console.log(updateDBItemDone)
     console.log(req.body)
     console.log(startValue)
     console.log(payload)
-    res.json(updateDBDone)
+    res.json(updateDBItemDone)
 }
 
 async function deleteItem(req, res) {
@@ -95,14 +102,5 @@ async function deleteItem(req, res) {
     // // console.log(testing)
     // // console.log(newItem)
     // // console.log("addItemWorks?")
-
-}
-
-async function deleteCategory(req, res) {
-    console.log("deleteItem Controller started")
-    console.log(req.body)
-    console.log(req.body.name)
-    const deleteCategoryDone = await Category.findOneAndDelete({name: req.body.name})
-    console.log(deleteCategoryDone)
-    res.json(deleteCategoryDone)
+    res.json(deleteItemDone)
 }
