@@ -34,7 +34,7 @@ export default function UpdateForm(startValue, currentCategory, setCategories) {
 
     async function handleSubmit(evt) {
         console.log("updateForm handleSubmit")
-
+        evt.preventDefault()
         try {
             const formData = (formInput)
             console.log("updateForm submit click")
@@ -44,19 +44,22 @@ export default function UpdateForm(startValue, currentCategory, setCategories) {
                 console.log("testt was true!? run cat")
                 const updateDone = await categoriesAPI.updateCategory(formData, startValue)
                 console.log(updateDone)
-                const allCategories = await getAllCategories();
-                // console.log(setCategories(allCategories));
+                // const allCategories = await getAllCategories();
+                // console.log(allCategories);
                 // setCategories(allCategories)
             } else {
                 console.log("testt was false?! run item")
                 const updateDone = await itemsAPI.updateItem(formData, currentCategory, startValue)
                 console.log("this is updateItemDone", updateDone)
-                const allCategories = await getAllCategories();
+                // const allCategories = await getAllCategories();
                 // console.log(allCategories)
                 // setCategories(allCategories);
                 
                 // console.log(updateDone)
             }
+            const allCategories = await getAllCategories();
+            console.log(allCategories);
+            setCategories(allCategories)
         } catch {
             console.log(error)
             setError('Error Making Update - Try Again');

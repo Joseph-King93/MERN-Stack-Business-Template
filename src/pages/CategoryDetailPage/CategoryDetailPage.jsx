@@ -12,8 +12,6 @@ export default function CategoryDetailPage({ categories, setCategories }) {
 
     // const [paramsTest, setparamsTest] = useState(useParams().categoryType)
 
-
-
     // console.log("this is paramsTest", paramsTest)
     // console.log(paramsTest)
     // console.log(paramsTest ==! undefined)
@@ -58,7 +56,7 @@ export default function CategoryDetailPage({ categories, setCategories }) {
                     }
                 </>
                         :
-                        <h1>whoops it broke</h1>
+                        <h1>Whoops! It broke...</h1>
             }
             <ItemForm 
             categories={categories} 
