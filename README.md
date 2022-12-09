@@ -45,16 +45,16 @@ This project can be re-purposed for various indstries. (examples below)
 ## Screenshots
 
 ERD
-!["ERD Draft"](images/React-Project-ERD.PNG)
+!["ERD Draft"](images/React-Project-ERD.png)
 
 Sign-Up Page
-!["ERD Draft"](images/React-Project-Sign-Up-Form.PNG)
+!["Sign-Up Page"](images/React-Project-Sign-Up-Form.png)
 
 Category Page
-!["ERD Draft"](images/React-Project-Category-Page.PNG)
+!["Category Page"](images/React-Project-Category-Page.png)
 
 Item Page
-!["ERD Draft"](images/React-Project-Item-Page.PNG)
+!["Item Page"](images/React-Project-Item-Page.png)
 
 ## Deployed App
 
