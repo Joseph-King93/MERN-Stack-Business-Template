@@ -43,7 +43,10 @@ export default function CategoriesPage({categories, setCategories}) {
                 categories={categories} 
                 setCategories={setCategories}
                 />
+                <div className="text-center">
+
                 <Button variant="primary" onClick={handleCheckToken}>Check When My Login Expires</Button>
+                </div>
         </>
     );
 }
