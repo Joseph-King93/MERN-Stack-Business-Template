@@ -76,16 +76,24 @@ export default function UpdateForm(startValue, currentCategory, setCategories) {
         <>
             {clicked ?
                 <Card style={{ width: "40%" }}>
-                    <Card.Header >
-                        <Nav className="justify-content-center">
-                            <Nav.Item as="h4">
-                                <Nav.Link href={startValue.startValue.replace(/\s/g,'-')}>{startValue.startValue}</Nav.Link>
-                            </Nav.Item>
+                    <Card.Header className="p-2">
+                        <Nav className="justify-content-center ">
+                            <Nav.Item className='h4 my-0'>
+                                {startValue.startValue ?
+                                <Nav.Link as={Link} to={startValue.startValue.replace(/\s/g,'-')}>{startValue.startValue}</Nav.Link>
+                                : "No items"
+                                 }
+                                </Nav.Item>
                         </Nav>
-                    <Button variant="outline-dark" size="sm" onClick={handleUpdate}>Edit</Button>
+                    <Button variant="outline-dark" size="sm" className="float-end my-0" onClick={handleUpdate}>Edit</Button>
                     </Card.Header>
                     <br></br>
-                    Some information about this category of items/services your Business offers
+                    <Card.Text>
+                        Some information about items/services your Business offers.
+                        <br></br> 
+                        <br></br> 
+                        Maybe include some other relevant information a customer might want to know about this category.
+                    </Card.Text>
                 </Card>
             :
                 <Card style={{ width: "40%" }}>

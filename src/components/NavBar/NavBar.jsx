@@ -16,18 +16,18 @@ export default function NavBar({ user, setUser }) {
     }
 
     return (
-    <Navbar expand="lg" collapseOnSelect bg="dark" variant="dark">
+    <Navbar expand="md" collapseOnSelect bg="dark" variant="dark" >
         <Container>
-            <Navbar.Brand href="#home">Your Business Here</Navbar.Brand>
+            <Navbar.Brand >Your Business Here</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                    <Nav.Link href="/categories">Categories</Nav.Link>
-                    <Nav.Link href="/orders/new">New Order</Nav.Link>
+                <Nav className="me-auto ">
+                    <Nav.Link as={Link} to="/categories">Categories</Nav.Link>
+                    <Nav.Link as={Link} to="/orders/new">New Order</Nav.Link>
                     <Navbar.Text>                       
                         <strong>Hello, {user.name} </strong> 
                     </Navbar.Text>
-                    <Nav.Link href="" onClick={handleLogOut}>Log Out</Nav.Link>
+                    <Nav.Link as={Link} to="" onClick={handleLogOut}>Log Out</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Container>

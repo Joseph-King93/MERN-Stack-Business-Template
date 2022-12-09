@@ -26,7 +26,7 @@ export default function CategoriesPage({categories, setCategories}) {
 
     return (
         <>
-            <h1>CategoriesPage</h1>
+            <h2>Take a Look at Our Products/Services Categories</h2>
             <br></br>
             {categories.map((cat, i) => (
                     <UpdateForm 
@@ -37,11 +37,11 @@ export default function CategoriesPage({categories, setCategories}) {
                     />
                 ))}
             <br></br>
-            <Button variant="primary" onClick={handleCheckToken}>Check When My Login Expires</Button>
             <CategoryForm 
             categories={categories} 
             setCategories={setCategories}
             />
+            <Button variant="primary" onClick={handleCheckToken}>Check When My Login Expires</Button>
         </>
     );
 }
