@@ -75,7 +75,7 @@ export default function UpdateForm(startValue, currentCategory, setCategories) {
     return (
         <>
             {clicked ?
-                <Card style={{ width: "40%" }}>
+                <Card style={{ width: "60%", margin: "0 auto" }} >
                     <Card.Header className="p-2">
                         <Nav className="justify-content-center ">
                             <Nav.Item className='h4 my-0'>
@@ -96,7 +96,7 @@ export default function UpdateForm(startValue, currentCategory, setCategories) {
                     </Card.Text>
                 </Card>
             :
-                <Card style={{ width: "40%" }}>
+                <Card style={{ width: "60%", margin: "0 auto" }}>
                     <Card.Header >
 
                             <Form autoComplete="off" onSubmit={handleSubmit}>

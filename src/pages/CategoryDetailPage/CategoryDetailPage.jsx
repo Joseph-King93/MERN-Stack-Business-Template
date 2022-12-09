@@ -41,7 +41,9 @@ export default function CategoryDetailPage({ categories, setCategories }) {
 
     return (
         <>
-            <h2>Here's a look at our {currentCategory} Products/Services</h2>
+            <div className="text-center">
+                <h2>Here's a look at our {currentCategory} Products/Services</h2>
+            </div>
             <br></br>
             {categories[index] !== undefined ?
                 <>

@@ -62,7 +62,7 @@ export default function ItemForm({currentCategory, setCategories}) {
     return (
         <>
             <>
-                <Card style={{ width: "40%"  }} className="p-2">
+                <Card style={{ width: "60%", margin: "0 auto" }} className="p-2">
                 <Form autoComplete="off" onSubmit={handleSubmit}>
                     <Form.Group>
                         <Form.Label className='h5'>Item: </Form.Label>
@@ -75,7 +75,7 @@ export default function ItemForm({currentCategory, setCategories}) {
                 </>
                 <br></br>
                 <>
-                <Card style={{ width: "40%"  }} className="p-2">
+                <Card style={{ width: "60%", margin: "0 auto" }} className="p-2">
                     <Form autoComplete="off" onSubmit={handleDeleteSubmit}>
                         <Form.Group>
                             <Form.Label className='h5'>Item: </Form.Label>

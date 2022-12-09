@@ -14,7 +14,7 @@ This project can be re-purposed for various indstries. (examples below)
         - Item: Steak
 
 - E-commerce
-    - Category: Clothes
+    - Category: Clothing
         - Item: Tops
         - Item: Bottoms
     - Category: Technology
@@ -32,6 +32,7 @@ This project can be re-purposed for various indstries. (examples below)
         - Create/Delete AJAX Request :heavy_check_mark:
         - Read AJAX Request :heavy_check_mark:
         - Update AJAX Request :heavy_check_mark:
+- CSS Styling!!! :heavy_check_mark:
 
 ## Technology Used
 - MongoDB
