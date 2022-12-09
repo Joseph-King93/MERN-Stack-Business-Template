@@ -22,13 +22,13 @@ This project can be re-purposed for various indstries. (examples below)
         - Item: Phones
 
 ### Project Technical Requirments
-- One week time constraint :heavy_check_mark:
-- Login/Logout/Sign-Up user functionality 
+- One week time constraint :skull_and_crossbones:
+- Login/Logout/Sign-Up user functionality :heavy_check_mark:
     - Implement Token Authentication :heavy_check_mark:
     - Use encryption via Bcrypt for user data protection :heavy_check_mark:
 - Protect server routes with user/token validation middleware :heavy_check_mark:
-- Include AJAX communication with Express backend
-    - Full-CRUD data operations (user Create/Delete excluded)
+- Include AJAX communication with Express backend :heavy_check_mark:
+    - Full-CRUD data operations (user Create/Delete excluded) :heavy_check_mark:
         - Create/Delete AJAX Request :heavy_check_mark:
         - Read AJAX Request :heavy_check_mark:
         - Update AJAX Request :heavy_check_mark:
@@ -44,7 +44,17 @@ This project can be re-purposed for various indstries. (examples below)
 
 ## Screenshots
 
-Stuff here
+ERD
+!["ERD Draft"](images/React-Project-ERD.PNG)
+
+Sign-Up Page
+!["ERD Draft"](images/React-Project-Sign-Up-Form.PNG)
+
+Category Page
+!["ERD Draft"](images/React-Project-Category-Page.PNG)
+
+Item Page
+!["ERD Draft"](images/React-Project-Item-Page.PNG)
 
 ## Deployed App
 

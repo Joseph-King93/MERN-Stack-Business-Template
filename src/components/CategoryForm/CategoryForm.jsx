@@ -20,13 +20,10 @@ export default function CategoryForm({categories, setCategories}) {
     }
 
     async function handleSubmit(evt) {
-        // console.log({...category})
+
         evt.preventDefault();
-        console.log("clicked")
-        // console.log(category)
         try {
             const formData = (category)
-            // console.log(formData)
             const newCategory = await categoriesAPI.addCategory(formData)
             console.log(newCategory)
             const allCategories = await categoriesAPI.getAllCategories();
@@ -46,16 +43,11 @@ export default function CategoryForm({categories, setCategories}) {
 
     async function handleDeleteSubmit(evt) {        
         evt.preventDefault();
-        console.log("clicked")
         try {
-            console.log("delete is clicked")
             const formData = (deleteCategory)
-            // console.log(formData)
             const deleteCategoryDone = await categoriesAPI.deleteCategory(formData)
             const allCategories = await categoriesAPI.getAllCategories();
             setCategories(allCategories);
-            // console.log("deleteCategoryDone is finished")
-            // console.log(deleteCategoryDone)
         } catch {
             console.log(error)
             setError('Error Deleting Category - Try Again');
