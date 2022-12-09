@@ -20,8 +20,6 @@ function App() {
     getCategories();
   }, [])
 
-  // console.log(categories)
-
   return (
     <main className="App">
       

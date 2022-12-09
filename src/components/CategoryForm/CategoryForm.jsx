@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
 export default function CategoryForm({categories, setCategories}) {
-    // console.log(categories)
     const [category, setCategory] = useState({
     name: ''
     });
@@ -25,11 +24,8 @@ export default function CategoryForm({categories, setCategories}) {
         try {
             const formData = (category)
             const newCategory = await categoriesAPI.addCategory(formData)
-            console.log(newCategory)
             const allCategories = await categoriesAPI.getAllCategories();
             setCategories(allCategories);
-            // setCategories(newCategory)
-            console.log(categories)
         } catch {
             console.log(error)
             setError('Error Creating New Category - Try Again');

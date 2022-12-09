@@ -6,8 +6,6 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
 export default function ItemForm({currentCategory, setCategories}) {
-    console.log("this is in itemForm")
-    console.log(currentCategory)
     const [item, setItem] = useState({
         name: ''
     });
@@ -23,14 +21,11 @@ export default function ItemForm({currentCategory, setCategories}) {
 
     async function handleSubmit(evt) {
         evt.preventDefault();
-        console.log("itemForm handleSubmit clicked")
         try {
             const formData = (item)
-            // console.log(formData)
             const newItem = await itemsAPI.addItem(formData, currentCategory)
             const allCategories = await categoriesAPI.getAllCategories();
             setCategories(allCategories);
-            console.log(newItem)
         } catch {
             console.log(error)
             setError('Error Creating New Item - Try Again');
@@ -44,15 +39,11 @@ export default function ItemForm({currentCategory, setCategories}) {
 
     async function handleDeleteSubmit(evt) {
         evt.preventDefault();
-        console.log("clicked")
         try {
-            console.log("delete is clicked")
             const formData = (deleteItem)
-            // console.log(formData)
             const deleteItemDone = await itemsAPI.deleteItem(formData, currentCategory)
             const allCategories = await categoriesAPI.getAllCategories();
             setCategories(allCategories);
-            console.log(deleteItemDone)
         } catch {
             console.log(error)
             setError('Error Deleting Item - Try Again');

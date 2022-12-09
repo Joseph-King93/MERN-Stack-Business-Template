@@ -9,7 +9,6 @@ module.exports = {
 };
 
 function checkToken(req, res) {
-    console.log("check token ran")
     // req.user will always be there for you when a token is sent
     console.log('req.user', req.user);
     res.json(req.exp);
@@ -34,7 +33,7 @@ async function create(req, res) {
         const user = await User.create(req.body);
         // token will be a string
         const token = createJWT(user);
-        // Yes, we can use res.json to send back just a string
+        // Use res.json to send back just a string
         // The client code needs to take this into consideration
         res.json(token);
     } catch (err) {
